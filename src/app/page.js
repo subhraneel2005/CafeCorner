@@ -4,11 +4,11 @@ import Navbarr from "@/components/Navbarr";
 import coffeeMug from "../../public/coffee.png";
 import Image from "next/image";
 import gsap from "gsap";
+import AboutUs from "@/components/AboutUs";
 
 export default function App() {
   const cafeRef = useRef(null);
   const cornerRef = useRef(null);
-  const imageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -39,16 +39,7 @@ export default function App() {
           delay: 1.5, // Ensures CORNER animation starts after CAFE
         }
       );
-
-      // Gentle rotation and scaling animation for the image
-      gsap.to(imageRef.current, {
-        scale: 1.05,
-        rotate: 5,
-        duration: 3,
-        
-        ease: "power1.inOut",
-      });
-    }, [cafeRef, cornerRef, imageRef]);
+    }, [cafeRef, cornerRef]);
 
     return () => ctx.revert();
   }, []);
@@ -56,7 +47,7 @@ export default function App() {
   return (
     <div className="w-full select-none relative">
       <Navbarr />
-      <div className="flex min-h-screen w-full p-2 justify-center items-center">
+      <div className="flex h-screen w-full p-2 justify-center items-center">
         <div className="block">
           <h1 className="md:text-[7vw]" ref={cafeRef}>
             {"CAFE".split("").map((letter, index) => (
@@ -73,8 +64,9 @@ export default function App() {
             ))}
           </h1>
         </div>
-        <Image ref={imageRef} src={coffeeMug} alt="coffee mug image" height={300} width={300} />
+        <Image src={coffeeMug} alt="coffee mug image" height={300} width={300} />
       </div>
+      <AboutUs />
     </div>
   );
 }
