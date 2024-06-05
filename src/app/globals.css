@@ -26,12 +26,39 @@ body {
   color: #FF7D29;
 }
 
-body p{
-  color: #FF9A00;
+body p li{
+  color: #EE4E4E;
 }
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+.underline-animation {
+  position: relative;
+  color: inherit; /* Make sure text color is inherited */
+  text-decoration: none; /* Remove default underline */
+  padding-bottom: 2px; /* Add some space for the underline */
+}
+
+.underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #EE4E4E; /* Matt black color */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
