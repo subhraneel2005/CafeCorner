@@ -5,6 +5,8 @@ import coffeeMug from "../../public/coffee.png";
 import Image from "next/image";
 import gsap from "gsap";
 import AboutUs from "@/components/AboutUs";
+import ContactUs from "@/components/ContactUs";
+import BookATable from "@/components/BookATable";
 
 export default function App() {
   const cafeRef = useRef(null);
@@ -36,7 +38,7 @@ export default function App() {
           duration: 1.2,
           ease: "power2.out",
           stagger: 0.1,
-          delay: 1.5, // Ensures CORNER animation starts after CAFE
+          delay: 0.8, // Ensures CORNER animation starts after CAFE
         }
       );
     }, [cafeRef, cornerRef]);
@@ -47,7 +49,7 @@ export default function App() {
   return (
     <div className="w-full select-none relative">
       <Navbarr />
-      <div className="flex h-screen w-full p-2 justify-center items-center">
+      <div className="flex h-screen w-full p-2 justify-center items-center" id="homePage">
         <div className="block">
           <h1 className="md:text-[7vw]" ref={cafeRef}>
             {"CAFE".split("").map((letter, index) => (
@@ -67,6 +69,8 @@ export default function App() {
         <Image src={coffeeMug} alt="coffee mug image" height={300} width={300} />
       </div>
       <AboutUs />
+      <BookATable/>
+      <ContactUs/>
     </div>
   );
 }

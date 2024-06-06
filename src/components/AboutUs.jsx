@@ -18,8 +18,8 @@ function AboutUs() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full" id="about-us">
-      <div className="flex gap-4 px-6 py-6 ">
+    <div className="h-screen w-full flex justify-center items-center" id="about-us">
+      <div className="flex gap-4 px-6 py-6">
         <Image
           height={100}
           width={500}
@@ -34,7 +34,6 @@ function AboutUs() {
           </h1>
         </div>
       </div>
-        
     </div>
   );
 }
