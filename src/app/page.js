@@ -75,7 +75,7 @@ export default function App() {
   });
 
   return (
-    <div className="w-full select-none relative" id="wrapper">
+    <div className="w-full select-none relative overflow-hidden" id="wrapper">
       <Navbarr />
       <div className="flex h-screen w-full p-2 justify-center items-center" id="homePage">
         <div className="block w-full">
